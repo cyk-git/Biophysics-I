@@ -202,6 +202,32 @@ plt.show()
 
 ![Z3](.\Visualization of dendritic morphology\outputs\Z3.png)
 
+## 第三题
+
+1. 设膜电位稳定在$V_m$，则此时膜两侧正离子净电荷流入与负离子净电荷流入代数和为零（取正电流入为正）。仅考虑带一个单位元电荷的离子，则有如下方程：
+
+   - $\sum_{i=1}^{N}P_{M_{i}^{+}}[M_{i}^{+}]_{out}+\sum_{j=1}^{N}P_{A_{j}^{-}}[A_{j}^{-}]_{in}-\sum_{i=1}^{N}P_{M_{i}^{+}}[M_{i}^{+}]_{in}p(E\geq-eV_m)-\sum_{j=1}^{N}P_{A_{j}^{-}}[A_{j}^{-}]_{out}p(E\geq-eV_m)=0$
+
+2. 上述方程中概率$p(E\geq-eV_m)$可以由玻尔兹曼分布给出：
+
+   - $p(E\geq-eV_m)=\frac{1}{k_BT}\int_{-eV_m}^{+\infty}e^{\frac{-E}{k_BT}}dE=e^{\frac{eV_m}{k_BT}}$
+
+3. 方程可化为
+
+   - $e^{\frac{eV_m}{k_BT}}=\frac{\sum_{i=1}^{N}P_{M_{i}^{+}}[M_{i}^{+}]_{out}+\sum_{j=1}^{N}P_{A_{j}^{-}}[A_{j}^{-}]_{in}}{\sum_{i=1}^{N}P_{M_{i}^{+}}[M_{i}^{+}]_{in}+\sum_{j=1}^{N}P_{A_{j}^{-}}[A_{j}^{-}]_{out}}$
+
+   即为
+
+   - $V_{m}=\frac{k_{B}T}{e}\ln\left(\frac{\sum_{i=1}^{N}P_{M_{i}^{+}}[M_{i}^{+}]_{out}+\sum_{j=1}^{N}P_{A_{j}^{-}}[A_{j}^{-}]_{in}}{\sum_{i=1}^{N}P_{M_{i}^{+}}[M_{i}^{+}]_{in}+\sum_{j=1}^{N}P_{A_{j}^{-}}[A_{j}^{-}]_{out}}\right)$
+
+4. 对于带多个单位电荷的离子，有：
+
+   - $\sum_{i=1}^{N}q_iP_{M_{i}^{q_i+}}[M_{i}^{q_i+}]_{out}+\sum_{j=1}^{N}q_jP_{A_{j}^{q_j-}}[A_{j}^{q_j-}]_{in}-\sum_{i=1}^{N}q_iP_{M_{i}^{q_i+}}[M_{i}^{q_i+}]_{in}e^{\frac{q_iV_m}{k_BT}}-\sum_{j=1}^{N}q_jP_{A_{j}^{q_j-}}[A_{j}^{q_j-}]_{out}e^{\frac{q_jV_m}{k_BT}}=0$
+
+   上式不易继续化简。可以发现，$Goldman-Hodgkin-Katz$方程只适用于一价离子。
+
+   （猜想：如果离子通道对电荷的选择性较强，几乎不会让带电量不同的离子通过，那么$Goldman-Hodgkin-Katz$方程也可以简单地推广到高价离子的情形，只需将式中的$e$换成$q$即可。）
+
 ## 第四题
 
 1. 先不考虑阈值问题，单纯对如下微分方程进行求解
